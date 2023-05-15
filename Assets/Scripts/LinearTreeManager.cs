@@ -105,6 +105,7 @@ public class LinearTreeManager<T>
 
         _level = level;
 
+        // 子ノードから親ノードに移動するのに必要なシフト数を計算
         _parentShift = (int)Mathf.Log(_divisionNumber, 2f);
 
         return true;
