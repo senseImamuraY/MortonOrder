@@ -275,15 +275,15 @@ public class LinearTreeManager<T>
     /// <returns>算出されたモートン番号</returns>
     int GetMortonNumber(float left, float top, float right, float bottom, float front, float back, out int belongLevel)
     {
-        // 左上手前のモートン番号を算出
+        // 左下手前のモートン番号を算出
         int ltd_x = (int)(left / _unitWidth);
-        int ltd_y = (int)(top / _unitHeight);
+        int ltd_y = (int)(bottom / _unitHeight);
         int ltd_z = (int)(front / _unitDepth);
         int ltd = BitSeparate3D(ltd_x) | (BitSeparate3D(ltd_y) << 1) | (BitSeparate3D(ltd_z) << 2);
-
-        // 右下奥のモートン番号を算出
+        
+        // 右上奥のモートン番号を算出
         int rbd_x = (int)(right / _unitWidth);
-        int rbd_y = (int)(bottom / _unitHeight);
+        int rbd_y = (int)(top / _unitHeight);
         int rbd_z = (int)(back / _unitDepth);
         int rbd = BitSeparate3D(rbd_x) | (BitSeparate3D(rbd_y) << 1) | BitSeparate3D(rbd_z) << 2;
 
