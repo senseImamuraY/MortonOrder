@@ -48,16 +48,7 @@ public class LinearTreeController : MonoBehaviour
     }
 
     [SerializeField]
-    private GameObject _object1;
-
-    [SerializeField]
-    private GameObject _object2;
-
-    [SerializeField]
-    private GameObject _object3;
-
-    [SerializeField]
-    private GameObject _object4;
+    private List<GameObject> _objects;
 
     [SerializeField]
     private GameObject _agentPrefab;
@@ -156,10 +147,11 @@ public class LinearTreeController : MonoBehaviour
     /// </summary>
     void RegisterObjects()
     {
-        RegisterObject(_object1);
-        RegisterObject(_object2);
-        RegisterObject(_object3);
-        RegisterObject(_object4);
+        for (int i = 0; i < _objects.Count; i++)
+        {
+            RegisterObject(_objects[i]);
+        }
+
 
         #region For Mock
         //TreeData<GameObject> data1 = new TreeData<GameObject>(_object1);
